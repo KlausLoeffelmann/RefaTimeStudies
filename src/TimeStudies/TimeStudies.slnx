@@ -1,0 +1,10 @@
+<Solution>
+  <Folder Name="/_solution folder/">
+    <File Path="../../.github/AppPrompts/refa_glossary_en.md" />
+    <File Path="../../.github/AppPrompts/refa_glossar_de_en.md" />
+    <File Path="../../.github/AppPrompts/refa_zeitaufnahme_copilot_prompt.md" />
+    <File Path="../../.github/AppPrompts/REFA_Zeitaufnahme_Copilot_Prompt_DE.md" />
+    <File Path="../../.github/AppPrompts/transkript_bereinigt.md" />
+  </Folder>
+  <Project Path="TimeStudiesApp/TimeStudiesApp.csproj" />
+</Solution>
