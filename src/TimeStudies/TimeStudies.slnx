@@ -1,5 +1,6 @@
 <Solution>
   <Folder Name="/_solution folder/">
+    <File Path="../../.github/AppPrompts/Large_Item_Ironer_1_Lane.md" />
     <File Path="../../.github/AppPrompts/refa_glossary_en.md" />
     <File Path="../../.github/AppPrompts/refa_glossar_de_en.md" />
     <File Path="../../.github/AppPrompts/refa_zeitaufnahme_copilot_prompt.md" />
