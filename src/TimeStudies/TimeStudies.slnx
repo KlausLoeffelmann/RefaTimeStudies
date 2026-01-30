@@ -7,5 +7,7 @@
     <File Path="../../.github/AppPrompts/REFA_Zeitaufnahme_Copilot_Prompt_DE.md" />
     <File Path="../../.github/AppPrompts/transkript_bereinigt.md" />
   </Folder>
+  <Folder Name="/_solution folder/.github/" />
+  <Folder Name="/_solution folder/.github/Skills/" />
   <Project Path="TimeStudiesApp/TimeStudiesApp.csproj" />
 </Solution>
