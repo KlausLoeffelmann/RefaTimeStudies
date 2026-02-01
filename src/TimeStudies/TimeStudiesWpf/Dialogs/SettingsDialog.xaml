@@ -1,0 +1,154 @@
+<Window x:Class="TimeStudiesWpf.Dialogs.SettingsDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TimeStudiesWpf.Dialogs"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterOwner"
+        ResizeMode="NoResize"
+        Height="400" Width="550"
+        Loaded="Window_Loaded">
+    <Grid Margin="{StaticResource MarginLarge}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Header -->
+        <Label Grid.Row="0"
+               x:Name="HeaderLabel"
+               Style="{StaticResource HeaderLabelStyle}"/>
+
+        <!-- Settings -->
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" Margin="{StaticResource MarginNormal}">
+            <StackPanel>
+                <!-- Language -->
+                <GroupBox Margin="{StaticResource MarginNormal}" Padding="{StaticResource PaddingMedium}">
+                    <GroupBox.Header>
+                        <Label x:Name="LanguageLabel" FontWeight="SemiBold"/>
+                    </GroupBox.Header>
+                    <StackPanel>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Label Grid.Column="0"
+                                   x:Name="LanguageChoiceLabel"
+                                   Style="{StaticResource LabelStyle}"/>
+                            <ComboBox Grid.Column="1"
+                                      x:Name="LanguageComboBox"
+                                      Style="{StaticResource TouchComboBoxStyle}"
+                                      Margin="{StaticResource MarginSmall}"
+                                      SelectionChanged="LanguageComboBox_SelectionChanged"/>
+                        </Grid>
+                        <TextBlock x:Name="LanguageWarningTextBlock"
+                                   Margin="{StaticResource MarginSmall}"
+                                   Foreground="{StaticResource WarningBrush}"
+                                   FontStyle="Italic"
+                                   TextWrapping="Wrap"/>
+                    </StackPanel>
+                </GroupBox>
+
+                <!-- Base Directory -->
+                <GroupBox Margin="{StaticResource MarginNormal}" Padding="{StaticResource PaddingMedium}">
+                    <GroupBox.Header>
+                        <Label x:Name="BaseDirectoryLabel" FontWeight="SemiBold"/>
+                    </GroupBox.Header>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBox Grid.Column="0"
+                                 x:Name="BaseDirectoryTextBox"
+                                 Style="{StaticResource TouchTextBoxStyle}"
+                                 Margin="{StaticResource MarginSmall}"
+                                 IsReadOnly="True"/>
+                        <Button Grid.Column="1"
+                                x:Name="BrowseDirectoryButton"
+                                Content="..."
+                                Style="{StaticResource TouchButtonStyle}"
+                                MinWidth="50"
+                                Margin="{StaticResource MarginSmall}"
+                                Click="BrowseDirectory_Click"/>
+                    </Grid>
+                </GroupBox>
+
+                <!-- Button Size -->
+                <GroupBox Margin="{StaticResource MarginNormal}" Padding="{StaticResource PaddingMedium}">
+                    <GroupBox.Header>
+                        <Label x:Name="ButtonSizeLabel" FontWeight="SemiBold"/>
+                    </GroupBox.Header>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label Grid.Column="0"
+                               x:Name="ButtonSizeChoiceLabel"
+                               Style="{StaticResource LabelStyle}"/>
+                        <Slider Grid.Column="1"
+                                x:Name="ButtonSizeSlider"
+                                Minimum="48"
+                                Maximum="100"
+                                TickFrequency="4"
+                                IsSnapToTickEnabled="True"
+                                Margin="{StaticResource MarginSmall}"
+                                VerticalAlignment="Center"
+                                ValueChanged="ButtonSizeSlider_ValueChanged"/>
+                        <TextBlock Grid.Column="2"
+                                   x:Name="ButtonSizeValueTextBlock"
+                                   Width="50"
+                                   TextAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Margin="{StaticResource MarginSmall}"/>
+                    </Grid>
+                </GroupBox>
+
+                <!-- Auto-save -->
+                <GroupBox Margin="{StaticResource MarginNormal}" Padding="{StaticResource PaddingMedium}">
+                    <GroupBox.Header>
+                        <Label x:Name="AutoSaveLabel" FontWeight="SemiBold"/>
+                    </GroupBox.Header>
+                    <CheckBox x:Name="AutoSaveCheckBox"
+                              Margin="{StaticResource MarginSmall}"
+                              VerticalAlignment="Center"
+                              Content=""/>
+                </GroupBox>
+
+                <!-- Confirm before closing -->
+                <GroupBox Margin="{StaticResource MarginNormal}" Padding="{StaticResource PaddingMedium}">
+                    <GroupBox.Header>
+                        <Label x:Name="ConfirmCloseLabel" FontWeight="SemiBold"/>
+                    </GroupBox.Header>
+                    <CheckBox x:Name="ConfirmCloseCheckBox"
+                              Margin="{StaticResource MarginSmall}"
+                              VerticalAlignment="Center"
+                              Content=""/>
+                </GroupBox>
+            </StackPanel>
+        </ScrollViewer>
+
+        <!-- Action Buttons -->
+        <StackPanel Grid.Row="2"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Right"
+                    Margin="{StaticResource MarginNormal}">
+            <Button x:Name="OKButton"
+                    Style="{StaticResource AccentButtonStyle}"
+                    Click="OK_Click"
+                    Margin="{StaticResource MarginSmall}"/>
+            <Button x:Name="CancelButton"
+                    Style="{StaticResource OutlineButtonStyle}"
+                    Click="Cancel_Click"
+                    Margin="{StaticResource MarginSmall}"/>
+        </StackPanel>
+    </Grid>
+</Window>

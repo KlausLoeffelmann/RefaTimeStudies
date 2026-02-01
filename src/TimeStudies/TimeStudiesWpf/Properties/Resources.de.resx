@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" msdata:Ordinal="5" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <!-- Menu Items -->
+  <data name="MenuFile" xml:space="preserve">
+    <value>Datei</value>
+  </data>
+  <data name="MenuFileNew" xml:space="preserve">
+    <value>Neue Definition</value>
+  </data>
+  <data name="MenuFileOpen" xml:space="preserve">
+    <value>Definition öffnen...</value>
+  </data>
+  <data name="MenuFileSave" xml:space="preserve">
+    <value>Definition speichern</value>
+  </data>
+  <data name="MenuFileSaveAs" xml:space="preserve">
+    <value>Definition speichern unter...</value>
+  </data>
+  <data name="MenuFileExportCsv" xml:space="preserve">
+    <value>Zeitaufnahme exportieren (CSV)...</value>
+  </data>
+  <data name="MenuFileExit" xml:space="preserve">
+    <value>Beenden</value>
+  </data>
+  <data name="MenuTools" xml:space="preserve">
+    <value>Extras</value>
+  </data>
+  <data name="MenuToolsSettings" xml:space="preserve">
+    <value>Einstellungen...</value>
+  </data>
+  <data name="MenuHelp" xml:space="preserve">
+    <value>Hilfe</value>
+  </data>
+  <data name="MenuHelpAbout" xml:space="preserve">
+    <value>Über...</value>
+  </data>
+  <!-- Buttons -->
+  <data name="BtnStartRecording" xml:space="preserve">
+    <value>Aufnahme starten</value>
+  </data>
+  <data name="BtnStopRecording" xml:space="preserve">
+    <value>Aufnahme stoppen</value>
+  </data>
+  <data name="BtnPause" xml:space="preserve">
+    <value>Unterbrechen</value>
+  </data>
+  <data name="BtnNewDefinition" xml:space="preserve">
+    <value>Neue Definition</value>
+  </data>
+  <data name="BtnOpenDefinition" xml:space="preserve">
+    <value>Definition öffnen</value>
+  </data>
+  <data name="BtnSaveDefinition" xml:space="preserve">
+    <value>Definition speichern</value>
+  </data>
+  <data name="BtnExportCsv" xml:space="preserve">
+    <value>CSV exportieren</value>
+  </data>
+  <data name="BtnAddStep" xml:space="preserve">
+    <value>Schritt hinzufügen</value>
+  </data>
+  <data name="BtnRemoveStep" xml:space="preserve">
+    <value>Schritt entfernen</value>
+  </data>
+  <data name="BtnMarkDefault" xml:space="preserve">
+    <value>Als Standard markieren</value>
+  </data>
+  <data name="BtnCreateCopy" xml:space="preserve">
+    <value>Kopie erstellen</value>
+  </data>
+  <data name="BtnSave" xml:space="preserve">
+    <value>Speichern</value>
+  </data>
+  <data name="BtnCancel" xml:space="preserve">
+    <value>Abbrechen</value>
+  </data>
+  <data name="BtnOK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <!-- Labels -->
+  <data name="LblProgressiveTime" xml:space="preserve">
+    <value>Fortschrittszeit</value>
+  </data>
+  <data name="LblCurrentStep" xml:space="preserve">
+    <value>Aktueller Ablaufabschnitt</value>
+  </data>
+  <data name="LblEntryCount" xml:space="preserve">
+    <value>Einträge</value>
+  </data>
+  <data name="LblDefinitionName" xml:space="preserve">
+    <value>Definitionsname</value>
+  </data>
+  <data name="LblDescription" xml:space="preserve">
+    <value>Beschreibung</value>
+  </data>
+  <data name="LblOrderNumber" xml:space="preserve">
+    <value>Nr.</value>
+  </data>
+  <data name="LblProcessStep" xml:space="preserve">
+    <value>Ablaufabschnitt</value>
+  </data>
+  <data name="LblDefaultStep" xml:space="preserve">
+    <value>Standard-Ablaufabschnitt</value>
+  </data>
+  <data name="LblProduct" xml:space="preserve">
+    <value>Produkt</value>
+  </data>
+  <data name="LblDimension" xml:space="preserve">
+    <value>Dimension</value>
+  </data>
+  <data name="LblDimensionType" xml:space="preserve">
+    <value>Dimensionsart</value>
+  </data>
+  <data name="LblDimensionUnit" xml:space="preserve">
+    <value>Einheit</value>
+  </data>
+  <data name="LblDefaultValue" xml:space="preserve">
+    <value>Standardwert</value>
+  </data>
+  <data name="LblCreatedAt" xml:space="preserve">
+    <value>Erstellt</value>
+  </data>
+  <data name="LblModifiedAt" xml:space="preserve">
+    <value>Geändert</value>
+  </data>
+  <data name="LblSequence" xml:space="preserve">
+    <value>Nr.</value>
+  </data>
+  <data name="LblTimestamp" xml:space="preserve">
+    <value>Zeitstempel</value>
+  </data>
+  <data name="LblDuration" xml:space="preserve">
+    <value>Dauer</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="RecordingInfo" xml:space="preserve">
+    <value>Aufnahmeinformationen</value>
+  </data>
+  <data name="DetailedEntries" xml:space="preserve">
+    <value>Detaillierte Zeiteinträge</value>
+  </data>
+  <data name="BtnClose" xml:space="preserve">
+    <value>Schließen</value>
+  </data>
+  <data name="StartedAt" xml:space="preserve">
+    <value>Gestartet am</value>
+  </data>
+  <data name="CompletedAt" xml:space="preserve">
+    <value>Abgeschlossen am</value>
+  </data>
+  <data name="TotalDuration" xml:space="preserve">
+    <value>Gesamtdauer</value>
+  </data>
+  <data name="TitleExportCsv" xml:space="preserve">
+    <value>Als CSV exportieren</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Sprache</value>
+  </data>
+  <data name="AutoSave" xml:space="preserve">
+    <value>Automatisch speichern</value>
+  </data>
+  <data name="ConfirmClose" xml:space="preserve">
+    <value>Bestätigen vor dem Schließen</value>
+  </data>
+  <data name="ButtonSize" xml:space="preserve">
+    <value>Schaltflächengröße</value>
+  </data>
+  <data name="TitleSelectDefinition" xml:space="preserve">
+    <value>Definition auswählen</value>
+  </data>
+  <data name="IsLocked" xml:space="preserve">
+    <value>Gesperrt</value>
+  </data>
+  <!-- Dimension Types -->
+  <data name="DimWeight" xml:space="preserve">
+    <value>Gewicht</value>
+  </data>
+  <data name="DimCount" xml:space="preserve">
+    <value>Anzahl</value>
+  </data>
+  <data name="DimLength" xml:space="preserve">
+    <value>Länge</value>
+  </data>
+  <data name="DimArea" xml:space="preserve">
+    <value>Fläche</value>
+  </data>
+  <data name="DimVolume" xml:space="preserve">
+    <value>Volumen</value>
+  </data>
+  <data name="DimCustom" xml:space="preserve">
+    <value>Benutzerdefiniert</value>
+  </data>
+  <!-- Settings -->
+  <data name="SettingsLanguage" xml:space="preserve">
+    <value>Sprache</value>
+  </data>
+  <data name="SettingsBaseDir" xml:space="preserve">
+    <value>Basisverzeichnis</value>
+  </data>
+  <data name="SettingsButtonSize" xml:space="preserve">
+    <value>Schaltflächengröße</value>
+  </data>
+  <data name="SettingsAutoSave" xml:space="preserve">
+    <value>Aufnahmen automatisch speichern</value>
+  </data>
+  <data name="SettingsConfirmClose" xml:space="preserve">
+    <value>Bestätigen vor dem Schließen der Aufnahme</value>
+  </data>
+  <!-- Messages -->
+  <data name="MsgDefinitionLocked" xml:space="preserve">
+    <value>Diese Definition ist gesperrt, da Aufnahmen existieren. Erstellen Sie eine Kopie zum Bearbeiten.</value>
+  </data>
+  <data name="MsgConfirmStop" xml:space="preserve">
+    <value>Aktuelle Aufnahme beenden?</value>
+  </data>
+  <data name="MsgUnsavedChanges" xml:space="preserve">
+    <value>Sie haben ungespeicherte Änderungen. Vor dem Schließen speichern?</value>
+  </data>
+  <data name="MsgRestartRequired" xml:space="preserve">
+    <value>Bitte starten Sie die Anwendung neu, damit die Sprachänderungen wirksam werden.</value>
+  </data>
+  <data name="MsgSelectDefinition" xml:space="preserve">
+    <value>Bitte wählen Sie eine Zeitaufnahme-Definition zum Öffnen aus.</value>
+  </data>
+  <data name="MsgNoRecording" xml:space="preserve">
+    <value>Derzeit läuft keine Aufnahme.</value>
+  </data>
+  <data name="MsgSaveSuccessful" xml:space="preserve">
+    <value>Definition erfolgreich gespeichert.</value>
+  </data>
+  <data name="MsgExportSuccessful" xml:space="preserve">
+    <value>Aufnahme erfolgreich exportiert nach:</value>
+  </data>
+  <!-- Dialog Titles -->
+  <data name="TitleCreateCopy" xml:space="preserve">
+    <value>Kopie erstellen</value>
+  </data>
+  <data name="TitleSelectFolder" xml:space="preserve">
+    <value>Basisverzeichnis auswählen</value>
+  </data>
+  <data name="TitleSettings" xml:space="preserve">
+    <value>Einstellungen</value>
+  </data>
+  <data name="TitleAbout" xml:space="preserve">
+    <value>Über REFA-Zeitaufnahme</value>
+  </data>
+  <data name="TitleNewDefinition" xml:space="preserve">
+    <value>Neue Zeitaufnahme-Definition</value>
+  </data>
+  <data name="TitleEditDefinition" xml:space="preserve">
+    <value>Zeitaufnahme-Definition bearbeiten</value>
+  </data>
+  <data name="TitleRecording" xml:space="preserve">
+    <value>Zeitaufnahme</value>
+  </data>
+  <data name="TitleResults" xml:space="preserve">
+    <value>Zeitaufnahme-Ergebnisse</value>
+  </data>
+  <!-- View Titles -->
+  <data name="ViewDefinitionEditor" xml:space="preserve">
+    <value>Definitions-Editor</value>
+  </data>
+  <data name="ViewRecording" xml:space="preserve">
+    <value>Aufnahme</value>
+  </data>
+  <data name="ViewResults" xml:space="preserve">
+    <value>Ergebnisse</value>
+  </data>
+  <!-- Summary -->
+  <data name="Summary" xml:space="preserve">
+    <value>ZUSAMMENFASSUNG</value>
+  </data>
+  <data name="SummaryCount" xml:space="preserve">
+    <value>Anzahl</value>
+  </data>
+  <data name="SummaryTotalDuration" xml:space="preserve">
+    <value>Gesamtdauer</value>
+  </data>
+  <data name="SummaryAvgDuration" xml:space="preserve">
+    <value>Durchschnittsdauer</value>
+  </data>
+  <!-- Application -->
+  <data name="AppName" xml:space="preserve">
+    <value>REFA-Zeitaufnahme</value>
+  </data>
+  <data name="AppVersion" xml:space="preserve">
+    <value>Version 1.0.0</value>
+  </data>
+  <!-- Welcome Screen -->
+  <data name="WelcomeTitle" xml:space="preserve">
+    <value>REFA-Zeitaufnahme</value>
+  </data>
+  <data name="WelcomeSubtitle" xml:space="preserve">
+    <value>Wählen Sie eine Definition aus, um mit der Aufnahme zu beginnen</value>
+  </data>
+  <data name="WelcomeCreateNew" xml:space="preserve">
+    <value>Neue Definition erstellen</value>
+  </data>
+  <data name="WelcomeOpenExisting" xml:space="preserve">
+    <value>Definition öffnen</value>
+  </data>
+</root>

@@ -4,9 +4,129 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TimeStudiesWpf"
+        xmlns:controls="clr-namespace:TimeStudiesWpf.Controls"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        WindowState="Maximized"
+        Loaded="Window_Loaded"
+        Closing="Window_Closing">
+    <DockPanel>
+        <!-- Menu Bar -->
+        <Menu DockPanel.Dock="Top" Background="{StaticResource SurfaceBrush}">
+            <!-- File Menu -->
+            <MenuItem x:Name="MenuFile" Header="File">
+                <MenuItem x:Name="MenuFileNew" Header="New Definition" Click="NewDefinition_Click"/>
+                <MenuItem x:Name="MenuFileOpen" Header="Open Definition..." Click="OpenDefinition_Click"/>
+                <Separator/>
+                <MenuItem x:Name="MenuFileSave" Header="Save Definition" Click="SaveDefinition_Click"/>
+                <MenuItem x:Name="MenuFileSaveAs" Header="Save Definition As..." Click="SaveDefinitionAs_Click"/>
+                <Separator/>
+                <MenuItem x:Name="MenuFileExportCsv" Header="Export Time Study (CSV)..." Click="ExportCsv_Click"/>
+                <Separator/>
+                <MenuItem x:Name="MenuFileExit" Header="Exit" Click="Exit_Click"/>
+            </MenuItem>
 
-    </Grid>
+            <!-- Tools Menu -->
+            <MenuItem x:Name="MenuTools" Header="Tools">
+                <MenuItem x:Name="MenuToolsSettings" Header="Settings..." Click="Settings_Click"/>
+            </MenuItem>
+
+            <!-- Help Menu -->
+            <MenuItem x:Name="MenuHelp" Header="Help">
+                <MenuItem x:Name="MenuHelpAbout" Header="About..." Click="About_Click"/>
+            </MenuItem>
+        </Menu>
+
+        <!-- Toolbar -->
+        <ToolBar DockPanel.Dock="Top" Background="{StaticResource BackgroundBrush}">
+            <Button x:Name="ToolbarNewDefinition" 
+                    Width="48" 
+                    Height="48" 
+                    ToolTip="New Definition"
+                    Click="NewDefinition_Click">
+                <Button.Content>
+                    <TextBlock Text="+" FontSize="24" FontWeight="Bold"/>
+                </Button.Content>
+            </Button>
+            <Button x:Name="ToolbarOpenDefinition" 
+                    Width="48" 
+                    Height="48" 
+                    ToolTip="Open Definition"
+                    Click="OpenDefinition_Click">
+                <Button.Content>
+                    <TextBlock Text="📂" FontSize="20"/>
+                </Button.Content>
+            </Button>
+            <Button x:Name="ToolbarSaveDefinition" 
+                    Width="48" 
+                    Height="48" 
+                    ToolTip="Save Definition"
+                    Click="SaveDefinition_Click">
+                <Button.Content>
+                    <TextBlock Text="💾" FontSize="20"/>
+                </Button.Content>
+            </Button>
+            <Separator/>
+            <Button x:Name="ToolbarStartRecording" 
+                    Width="48" 
+                    Height="48" 
+                    ToolTip="Start Recording"
+                    Click="StartRecording_Click">
+                <Button.Content>
+                    <TextBlock Text="▶" FontSize="20"/>
+                </Button.Content>
+            </Button>
+            <Button x:Name="ToolbarStopRecording" 
+                    Width="48" 
+                    Height="48" 
+                    ToolTip="Stop Recording"
+                    IsEnabled="False"
+                    Click="StopRecording_Click">
+                <Button.Content>
+                    <TextBlock Text="⏹" FontSize="20"/>
+                </Button.Content>
+            </Button>
+            <Separator/>
+            <Button x:Name="ToolbarExportCsv" 
+                    Width="48" 
+                    Height="48" 
+                    ToolTip="Export CSV"
+                    Click="ExportCsv_Click">
+                <Button.Content>
+                    <TextBlock Text="📊" FontSize="20"/>
+                </Button.Content>
+            </Button>
+        </ToolBar>
+
+        <!-- Main Content Area -->
+        <ContentControl x:Name="MainContentControl">
+            <!-- Default Welcome Screen -->
+            <Grid Background="{StaticResource SurfaceBrush}" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <TextBlock FontSize="48" FontWeight="Bold" Foreground="{StaticResource PrimaryBrush}" TextAlignment="Center" Margin="{StaticResource MarginLarge}">
+                        📊
+                    </TextBlock>
+                    <TextBlock x:Name="WelcomeTitleTextBlock"
+                            FontSize="{StaticResource FontSizeXXLarge}"
+                            FontWeight="SemiBold"
+                            TextAlignment="Center"
+                            Margin="{StaticResource MarginNormal}"/>
+                    <TextBlock x:Name="WelcomeSubtitleTextBlock"
+                            FontSize="{StaticResource FontSizeMedium}"
+                            Foreground="{StaticResource TextSecondaryBrush}"
+                            TextAlignment="Center"
+                            Margin="{StaticResource MarginNormal}"/>
+                    <Button x:Name="WelcomeNewDefinitionButton"
+                            Style="{StaticResource AccentButtonStyle}"
+                            Click="NewDefinition_Click"
+                            Margin="{StaticResource MarginMedium}"
+                            MinWidth="200"/>
+                    <Button x:Name="WelcomeOpenDefinitionButton"
+                            Style="{StaticResource TouchButtonStyle}"
+                            Click="OpenDefinition_Click"
+                            Margin="{StaticResource MarginMedium}"
+                            MinWidth="200"/>
+                </StackPanel>
+            </Grid>
+        </ContentControl>
+    </DockPanel>
 </Window>

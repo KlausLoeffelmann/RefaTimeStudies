@@ -1,0 +1,146 @@
+<UserControl x:Class="TimeStudiesWpf.Controls.ResultsViewControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:TimeStudiesWpf.Controls"
+             mc:Ignorable="d"
+             d:DesignHeight="600" d:DesignWidth="1000"
+             Loaded="UserControl_Loaded">
+    <Grid Margin="{StaticResource MarginMedium}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Header -->
+        <Label x:Name="HeaderLabel"
+               Grid.Row="0"
+               Style="{StaticResource HeaderLabelStyle}"/>
+
+        <!-- Recording Info -->
+        <GroupBox Grid.Row="1"
+                  Margin="{StaticResource MarginNormal}"
+                  Padding="{StaticResource PaddingMedium}">
+            <GroupBox.Header>
+                <Label x:Name="RecordingInfoLabel"
+                       FontWeight="SemiBold"/>
+            </GroupBox.Header>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="0" 
+                          x:Name="DefinitionNameTextBlock"
+                          Style="{StaticResource LabelStyle}"
+                          FontWeight="SemiBold"/>
+                <TextBlock Grid.Row="1"
+                          x:Name="StartedAtTextBlock"
+                          Style="{StaticResource LabelStyle}"/>
+                <TextBlock Grid.Row="2"
+                          x:Name="CompletedAtTextBlock"
+                          Style="{StaticResource LabelStyle}"/>
+                <TextBlock Grid.Row="3"
+                          x:Name="TotalDurationTextBlock"
+                          Style="{StaticResource LabelStyle}"
+                          FontWeight="SemiBold"
+                          Foreground="{StaticResource PrimaryBrush}"/>
+            </Grid>
+        </GroupBox>
+
+        <!-- Detailed Entries -->
+        <GroupBox Grid.Row="2"
+                  Margin="{StaticResource MarginNormal}"
+                  Padding="{StaticResource PaddingMedium}">
+            <GroupBox.Header>
+                <Label x:Name="DetailedEntriesLabel"
+                       FontWeight="SemiBold"/>
+            </GroupBox.Header>
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <DataGrid x:Name="EntriesDataGrid"
+                          Style="{StaticResource TouchDataGridStyle}"
+                          ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
+                          AutoGenerateColumns="False"
+                          IsReadOnly="True"
+                          CanUserAddRows="False"
+                          CanUserDeleteRows="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn x:Name="SequenceColumn"
+                                            Width="50"/>
+                        <DataGridTextColumn x:Name="OrderNumberColumn"
+                                            Width="80"/>
+                        <DataGridTextColumn x:Name="DescriptionColumn"
+                                            Width="*"/>
+                        <DataGridTextColumn x:Name="TimestampColumn"
+                                            Width="150"/>
+                        <DataGridTextColumn x:Name="ProgressiveTimeColumn"
+                                            Width="100"/>
+                        <DataGridTextColumn x:Name="DurationSecondsColumn"
+                                            Width="80"/>
+                        <DataGridTextColumn x:Name="DurationMinutesColumn"
+                                            Width="80"/>
+                        <DataGridTextColumn x:Name="DimensionValueColumn"
+                                            Width="100"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </ScrollViewer>
+        </GroupBox>
+
+        <!-- Summary Section -->
+        <GroupBox Grid.Row="3"
+                  Margin="{StaticResource MarginNormal}"
+                  Padding="{StaticResource PaddingMedium}">
+            <GroupBox.Header>
+                <Label x:Name="SummaryLabel"
+                       FontWeight="SemiBold"/>
+            </GroupBox.Header>
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <DataGrid x:Name="SummaryDataGrid"
+                          Style="{StaticResource TouchDataGridStyle}"
+                          ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
+                          AutoGenerateColumns="False"
+                          IsReadOnly="True"
+                          CanUserAddRows="False"
+                          CanUserDeleteRows="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn x:Name="SummaryOrderNumberColumn"
+                                            Width="80"/>
+                        <DataGridTextColumn x:Name="SummaryDescriptionColumn"
+                                            Width="*"/>
+                        <DataGridTextColumn x:Name="SummaryCountColumn"
+                                            Width="80"/>
+                        <DataGridTextColumn x:Name="SummaryTotalDurationSecondsColumn"
+                                            Width="100"/>
+                        <DataGridTextColumn x:Name="SummaryTotalDurationMinutesColumn"
+                                            Width="100"/>
+                        <DataGridTextColumn x:Name="SummaryAvgDurationColumn"
+                                            Width="100"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </ScrollViewer>
+        </GroupBox>
+
+        <!-- Action Buttons -->
+        <StackPanel Grid.Row="5"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Right"
+                    Margin="{StaticResource MarginNormal}">
+            <Button x:Name="ExportCsvButton"
+                    Style="{StaticResource TouchButtonStyle}"
+                    Click="ExportCsv_Click"
+                    Margin="{StaticResource MarginSmall}"/>
+            <Button x:Name="CloseButton"
+                    Style="{StaticResource OutlineButtonStyle}"
+                    Click="Close_Click"
+                    Margin="{StaticResource MarginSmall}"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

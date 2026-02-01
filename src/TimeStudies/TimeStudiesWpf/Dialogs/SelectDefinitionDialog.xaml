@@ -1,0 +1,80 @@
+<Window x:Class="TimeStudiesWpf.Dialogs.SelectDefinitionDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TimeStudiesWpf.Dialogs"
+        xmlns:models="clr-namespace:TimeStudiesWpf.Models"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterOwner"
+        ResizeMode="NoResize"
+        Height="500" Width="700"
+        Loaded="Window_Loaded">
+    <Grid Margin="{StaticResource MarginMedium}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Header -->
+        <Label Grid.Row="0"
+               x:Name="HeaderLabel"
+               Style="{StaticResource HeaderLabelStyle}"/>
+
+        <!-- Definitions List -->
+        <GroupBox Grid.Row="1"
+                  Margin="{StaticResource MarginNormal}"
+                  Padding="{StaticResource PaddingMedium}">
+            <GroupBox.Header>
+                <Label x:Name="DefinitionsLabel"
+                       FontWeight="SemiBold"/>
+            </GroupBox.Header>
+            <DataGrid x:Name="DefinitionsDataGrid"
+                      Style="{StaticResource TouchDataGridStyle}"
+                      ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
+                      AutoGenerateColumns="False"
+                      IsReadOnly="True"
+                      CanUserAddRows="False"
+                      CanUserDeleteRows="False"
+                      SelectionMode="Single"
+                      SelectionUnit="FullRow"
+                      MouseDoubleClick="DefinitionsDataGrid_MouseDoubleClick"
+                      SelectionChanged="DefinitionsDataGrid_SelectionChanged">
+                <DataGrid.Columns>
+                    <DataGridTextColumn x:Name="NameColumn"
+                                        Width="*"
+                                        Binding="{Binding Name}"/>
+                    <DataGridTextColumn x:Name="DescriptionColumn"
+                                        Width="2*"
+                                        Binding="{Binding Description}"/>
+                    <DataGridTextColumn x:Name="CreatedColumn"
+                                        Width="120"
+                                        Binding="{Binding CreatedAt, StringFormat='yyyy-MM-dd'}"/>
+                    <DataGridTextColumn x:Name="ModifiedColumn"
+                                        Width="120"
+                                        Binding="{Binding ModifiedAt, StringFormat='yyyy-MM-dd'}"/>
+                    <DataGridTextColumn x:Name="LockedColumn"
+                                        Width="60"
+                                        Binding="{Binding IsLocked}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </GroupBox>
+
+        <!-- Action Buttons -->
+        <StackPanel Grid.Row="2"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Right"
+                    Margin="{StaticResource MarginNormal}">
+            <Button x:Name="OpenButton"
+                    Style="{StaticResource AccentButtonStyle}"
+                    Click="Open_Click"
+                    Margin="{StaticResource MarginSmall}"
+                    IsEnabled="False"/>
+            <Button x:Name="CancelButton"
+                    Style="{StaticResource OutlineButtonStyle}"
+                    Click="Cancel_Click"
+                    Margin="{StaticResource MarginSmall}"/>
+        </StackPanel>
+    </Grid>
+</Window>

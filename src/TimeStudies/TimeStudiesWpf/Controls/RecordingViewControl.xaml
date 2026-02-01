@@ -1,0 +1,169 @@
+<UserControl x:Class="TimeStudiesWpf.Controls.RecordingViewControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:TimeStudiesWpf.Controls"
+             mc:Ignorable="d"
+             d:DesignHeight="600" d:DesignWidth="1000"
+             Loaded="UserControl_Loaded">
+    <Grid Margin="{StaticResource MarginMedium}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Header -->
+        <Label x:Name="HeaderLabel"
+               Grid.Row="0"
+               Style="{StaticResource HeaderLabelStyle}"/>
+
+        <!-- Definition Info -->
+        <GroupBox Grid.Row="1"
+                  Margin="{StaticResource MarginNormal}"
+                  Padding="{StaticResource PaddingMedium}">
+            <GroupBox.Header>
+                <Label x:Name="DefinitionInfoLabel"
+                       FontWeight="SemiBold"/>
+            </GroupBox.Header>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="0" 
+                          x:Name="DefinitionNameTextBlock"
+                          Style="{StaticResource LabelStyle}"/>
+                <TextBlock Grid.Row="1"
+                          x:Name="DefinitionDescriptionTextBlock"
+                          Style="{StaticResource LabelStyle}"
+                          Foreground="{StaticResource TextSecondaryBrush}"/>
+            </Grid>
+        </GroupBox>
+
+        <!-- Recording Controls and Status -->
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Process Step Buttons -->
+            <GroupBox Grid.Column="0"
+                      Margin="{StaticResource MarginNormal}"
+                      Padding="{StaticResource PaddingMedium}">
+                <GroupBox.Header>
+                    <Label x:Name="ProcessStepsLabel"
+                           FontWeight="SemiBold"/>
+                </GroupBox.Header>
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <ItemsControl x:Name="ProcessStepButtonsPanel">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel Orientation="Horizontal"/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                    </ItemsControl>
+                </ScrollViewer>
+            </GroupBox>
+
+            <!-- Recording Status -->
+            <GroupBox Grid.Column="1"
+                      Margin="{StaticResource MarginNormal}"
+                      Padding="{StaticResource PaddingMedium}">
+                <GroupBox.Header>
+                    <Label x:Name="StatusLabel"
+                           FontWeight="SemiBold"/>
+                </GroupBox.Header>
+                <StackPanel>
+                    <!-- Progressive Time -->
+                    <StackPanel Margin="{StaticResource MarginNormal}">
+                        <Label x:Name="ProgressiveTimeLabel"
+                               Style="{StaticResource LabelStyle}"/>
+                        <TextBlock x:Name="ProgressiveTimeTextBlock"
+                                   FontSize="{StaticResource FontSizeXXLarge}"
+                                   FontWeight="Bold"
+                                   Foreground="{StaticResource PrimaryBrush}"
+                                   HorizontalAlignment="Center"
+                                   Margin="{StaticResource MarginSmall}"/>
+                    </StackPanel>
+
+                    <!-- Current Step -->
+                    <StackPanel Margin="{StaticResource MarginNormal}">
+                        <Label x:Name="CurrentStepLabel"
+                               Style="{StaticResource LabelStyle}"/>
+                        <TextBlock x:Name="CurrentStepTextBlock"
+                                   FontSize="{StaticResource FontSizeLarge}"
+                                   FontWeight="SemiBold"
+                                   HorizontalAlignment="Center"
+                                   Margin="{StaticResource MarginSmall}"/>
+                    </StackPanel>
+
+                    <!-- Entry Count -->
+                    <StackPanel Margin="{StaticResource MarginNormal}">
+                        <Label x:Name="EntryCountLabel"
+                               Style="{StaticResource LabelStyle}"/>
+                        <TextBlock x:Name="EntryCountTextBlock"
+                                   FontSize="{StaticResource FontSizeLarge}"
+                                   HorizontalAlignment="Center"
+                                   Margin="{StaticResource MarginSmall}"/>
+                    </StackPanel>
+
+                    <!-- Recording Time Indicator -->
+                    <Border x:Name="RecordingIndicator"
+                            Background="{StaticResource AccentBrush}"
+                            CornerRadius="20"
+                            Padding="12,8"
+                            HorizontalAlignment="Center"
+                            Margin="{StaticResource MarginNormal}"
+                            Visibility="Collapsed">
+                        <StackPanel Orientation="Horizontal">
+                            <Ellipse Width="12" Height="12" Fill="White" Margin="0,0,8,0">
+                                <Ellipse.RenderTransform>
+                                    <RotateTransform x:Name="RecordingDotRotation" Angle="0"/>
+                                </Ellipse.RenderTransform>
+                            </Ellipse>
+                            <TextBlock Text="● REC" 
+                                       FontSize="14" 
+                                       FontWeight="Bold" 
+                                       Foreground="White"/>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+            </GroupBox>
+        </Grid>
+
+        <!-- Action Buttons -->
+        <StackPanel Grid.Row="3"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Center"
+                    Margin="{StaticResource MarginLarge}">
+            <Button x:Name="StartRecordingButton"
+                    Style="{StaticResource AccentButtonStyle}"
+                    Click="StartRecording_Click"
+                    Margin="{StaticResource MarginSmall}"
+                    MinHeight="60"
+                    MinWidth="180"
+                    FontSize="{StaticResource FontSizeLarge}"/>
+            <Button x:Name="StopRecordingButton"
+                    Style="{StaticResource ErrorButtonStyle}"
+                    Click="StopRecording_Click"
+                    Margin="{StaticResource MarginSmall}"
+                    MinHeight="60"
+                    MinWidth="180"
+                    FontSize="{StaticResource FontSizeLarge}"
+                    IsEnabled="False"/>
+            <Button x:Name="PauseButton"
+                    Style="{StaticResource WarningButtonStyle}"
+                    Click="Pause_Click"
+                    Margin="{StaticResource MarginSmall}"
+                    MinHeight="60"
+                    MinWidth="180"
+                    FontSize="{StaticResource FontSizeLarge}"
+                    IsEnabled="False"/>
+        </StackPanel>
+    </Grid>
+</UserControl>
