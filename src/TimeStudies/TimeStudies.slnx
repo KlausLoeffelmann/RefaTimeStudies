@@ -7,5 +7,5 @@
     <File Path="../../.github/AppPrompts/REFA_Zeitaufnahme_Copilot_Prompt_DE.md" />
     <File Path="../../.github/AppPrompts/transkript_bereinigt.md" />
   </Folder>
-  <Project Path="TimeStudiesApp/TimeStudiesApp.csproj" />
+  <Project Path="TimeStudiesWpf/TimeStudiesWpf.csproj" Id="2a11f037-9203-417d-9080-8936f16aec78" />
 </Solution>
