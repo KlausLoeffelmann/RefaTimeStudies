@@ -1,12 +1,163 @@
-﻿<Window x:Class="TimeStudiesWpf.MainWindow"
+<Window x:Class="TimeStudiesWpf.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TimeStudiesWpf"
+        xmlns:vm="clr-namespace:TimeStudiesWpf.ViewModels"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="{Binding WindowTitle}"
+        Height="700" Width="1000"
+        MinHeight="500" MinWidth="800"
+        WindowStartupLocation="CenterScreen">
 
-    </Grid>
+    <Window.InputBindings>
+        <KeyBinding Key="N" Modifiers="Ctrl" Command="{Binding NewDefinitionCommand}"/>
+        <KeyBinding Key="O" Modifiers="Ctrl" Command="{Binding OpenDefinitionCommand}"/>
+        <KeyBinding Key="S" Modifiers="Ctrl" Command="{Binding SaveDefinitionCommand}"/>
+    </Window.InputBindings>
+
+    <DockPanel>
+        <!-- Menu Bar -->
+        <Menu DockPanel.Dock="Top" Padding="2">
+            <!-- File Menu -->
+            <MenuItem Header="_File">
+                <MenuItem Header="_New Definition" Command="{Binding NewDefinitionCommand}" InputGestureText="Ctrl+N">
+                    <MenuItem.Icon>
+                        <TextBlock Text="📄" FontSize="14"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="_Open Definition..." Command="{Binding OpenDefinitionCommand}" InputGestureText="Ctrl+O">
+                    <MenuItem.Icon>
+                        <TextBlock Text="📂" FontSize="14"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <Separator/>
+                <MenuItem Header="_Save Definition" Command="{Binding SaveDefinitionCommand}" InputGestureText="Ctrl+S">
+                    <MenuItem.Icon>
+                        <TextBlock Text="💾" FontSize="14"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Save Definition _As..." Command="{Binding SaveDefinitionAsCommand}"/>
+                <Separator/>
+                <MenuItem Header="_Export Time Study (CSV)..." Command="{Binding ExportCsvCommand}">
+                    <MenuItem.Icon>
+                        <TextBlock Text="📊" FontSize="14"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <Separator/>
+                <MenuItem Header="E_xit" Command="{Binding ExitCommand}" InputGestureText="Alt+F4"/>
+            </MenuItem>
+
+            <!-- Tools Menu -->
+            <MenuItem Header="_Tools">
+                <MenuItem Header="_Settings..." Command="{Binding SettingsCommand}">
+                    <MenuItem.Icon>
+                        <TextBlock Text="⚙️" FontSize="14"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+
+            <!-- Help Menu -->
+            <MenuItem Header="_Help">
+                <MenuItem Header="_About..." Command="{Binding AboutCommand}">
+                    <MenuItem.Icon>
+                        <TextBlock Text="ℹ️" FontSize="14"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+        </Menu>
+
+        <!-- Toolbar -->
+        <ToolBarTray DockPanel.Dock="Top">
+            <ToolBar Band="0" BandIndex="0">
+                <Button Command="{Binding NewDefinitionCommand}"
+                        ToolTip="New Definition"
+                        MinWidth="48" MinHeight="48" Margin="2">
+                    <StackPanel>
+                        <TextBlock Text="📄" FontSize="24" HorizontalAlignment="Center"/>
+                        <TextBlock Text="New" FontSize="10" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+
+                <Button Command="{Binding OpenDefinitionCommand}"
+                        ToolTip="Open Definition"
+                        MinWidth="48" MinHeight="48" Margin="2">
+                    <StackPanel>
+                        <TextBlock Text="📂" FontSize="24" HorizontalAlignment="Center"/>
+                        <TextBlock Text="Open" FontSize="10" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+
+                <Button Command="{Binding SaveDefinitionCommand}"
+                        ToolTip="Save Definition"
+                        MinWidth="48" MinHeight="48" Margin="2">
+                    <StackPanel>
+                        <TextBlock Text="💾" FontSize="24" HorizontalAlignment="Center"/>
+                        <TextBlock Text="Save" FontSize="10" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+
+                <Separator/>
+
+                <Button Command="{Binding StartRecordingCommand}"
+                        ToolTip="Start Recording"
+                        MinWidth="48" MinHeight="48" Margin="2"
+                        Background="#C8E6C9">
+                    <StackPanel>
+                        <TextBlock Text="▶️" FontSize="24" HorizontalAlignment="Center"/>
+                        <TextBlock Text="Start" FontSize="10" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+
+                <Button Command="{Binding StopRecordingCommand}"
+                        ToolTip="Stop Recording"
+                        MinWidth="48" MinHeight="48" Margin="2"
+                        Background="#FFCDD2">
+                    <StackPanel>
+                        <TextBlock Text="⏹️" FontSize="24" HorizontalAlignment="Center"/>
+                        <TextBlock Text="Stop" FontSize="10" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+
+                <Separator/>
+
+                <Button Command="{Binding ExportCsvCommand}"
+                        ToolTip="Export to CSV"
+                        MinWidth="48" MinHeight="48" Margin="2">
+                    <StackPanel>
+                        <TextBlock Text="📊" FontSize="24" HorizontalAlignment="Center"/>
+                        <TextBlock Text="Export" FontSize="10" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+
+                <Separator/>
+
+                <Button Command="{Binding ViewResultsCommand}"
+                        ToolTip="View Results"
+                        MinWidth="48" MinHeight="48" Margin="2">
+                    <StackPanel>
+                        <TextBlock Text="📋" FontSize="24" HorizontalAlignment="Center"/>
+                        <TextBlock Text="Results" FontSize="10" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+            </ToolBar>
+        </ToolBarTray>
+
+        <!-- Status Bar -->
+        <StatusBar DockPanel.Dock="Bottom" Height="24">
+            <StatusBarItem>
+                <TextBlock Text="{Binding StatusMessage}"/>
+            </StatusBarItem>
+            <Separator/>
+            <StatusBarItem HorizontalAlignment="Right">
+                <TextBlock Text="{Binding CurrentDefinitionName}"/>
+            </StatusBarItem>
+        </StatusBar>
+
+        <!-- Main Content Area -->
+        <Border Margin="4">
+            <ContentControl Content="{Binding CurrentView}"/>
+        </Border>
+    </DockPanel>
 </Window>
